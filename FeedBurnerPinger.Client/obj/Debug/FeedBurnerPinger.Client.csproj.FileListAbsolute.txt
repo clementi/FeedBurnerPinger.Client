@@ -1,0 +1,8 @@
+c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client\bin\Debug\FeedBurnerPinger.Client.dll.config
+c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client\bin\Debug\FeedBurnerPinger.Client.dll
+c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client\bin\Debug\FeedBurnerPinger.Client.pdb
+c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client\obj\Debug\FeedBurnerPinger.Client.csprojResolveAssemblyReference.cache
+c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client\obj\Debug\FeedBurnerPinger.Client.dll
+c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client\obj\Debug\FeedBurnerPinger.Client.pdb
+c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client\bin\Debug\Newtonsoft.Json.dll
+c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client\bin\Debug\Newtonsoft.Json.xml
