@@ -1,9 +1,0 @@
-c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client.Tests\bin\Debug\FeedBurnerPinger.Client.Tests.dll
-c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client.Tests\bin\Debug\FeedBurnerPinger.Client.Tests.pdb
-c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client.Tests\bin\Debug\FeedBurnerPinger.Client.dll
-c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client.Tests\bin\Debug\FeedBurnerPinger.Client.pdb
-c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client.Tests\obj\Debug\FeedBurnerPinger.Client.Tests.csprojResolveAssemblyReference.cache
-c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client.Tests\obj\Debug\FeedBurnerPinger.Client.Tests.dll
-c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client.Tests\obj\Debug\FeedBurnerPinger.Client.Tests.pdb
-c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client.Tests\bin\Debug\Newtonsoft.Json.dll
-c:\Users\VMWare User\projects\FeedBurnerPinger.Client\FeedBurnerPinger.Client.Tests\bin\Debug\Newtonsoft.Json.xml
