@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using FeedBurnerPinger.Client.Tests.Fakes;
 using NUnit.Framework;
-using Assert = NUnit.Framework.Assert;
 
 namespace FeedBurnerPinger.Client.Tests
 {
