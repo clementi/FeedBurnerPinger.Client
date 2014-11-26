@@ -1,19 +1,20 @@
 ﻿using System.Net;
 using FeedBurnerPinger.Client.Tests.Fakes;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using Assert = NUnit.Framework.Assert;
 
 namespace FeedBurnerPinger.Client.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class PingingClientTests
     {
         private const string SomeFeedUrl = "http://some-feed-url";
 
-        [TestMethod]
-        public void When_the_endpoint_returns_SUCCEEDED_it_should_return_a_response_with_Succeeded()
+        [TestCase("http://some-url-that-succeeds", PingStatus.Succeeded, "Successfully pinged")]
+        [TestCase("http://some-url-that-reports-throttled", PingStatus.Throttled, "Ping is throttled")]
+        [TestCase("http://some-url-that-reports-failed", PingStatus.Failed, "Your Ping resulted in an Error")]
+        public void PingTest(string endpointUrl, PingStatus expectedStatus, string expectedMessage)
         {
-            const string endpointUrl = "http://some-url-that-succeeds";
-            
             WebRequest.RegisterPrefix(endpointUrl, new FakeWebRequestCreator());
             IPingingClient client = new PingingClient(endpointUrl);
 
@@ -22,42 +23,8 @@ namespace FeedBurnerPinger.Client.Tests
                 FeedUrl = SomeFeedUrl
             });
 
-            Assert.AreEqual(response.Status, PingStatus.Succeeded);
-            Assert.AreEqual(response.Message, "Successfully pinged");
-        }
-
-        [TestMethod]
-        public void When_the_endpoint_returns_THROTTLED_it_should_return_a_response_with_Throttled()
-        {
-            const string endpointUrl = "http://some-url-that-reports-throttled";
-
-            WebRequest.RegisterPrefix(endpointUrl, new FakeWebRequestCreator());
-            IPingingClient client = new PingingClient(endpointUrl);
-
-            PingResponse response = client.Ping(new PingRequest
-            {
-                FeedUrl = SomeFeedUrl
-            });
-
-            Assert.AreEqual(response.Status, PingStatus.Throttled);
-            Assert.AreEqual(response.Message, "Ping is throttled");
-        }
-
-        [TestMethod]
-        public void When_the_endpoint_returns_FAILED_it_should_return_a_response_with_Failed()
-        {
-            const string endpointUrl = "http://some-url-that-reports-failed";
-
-            WebRequest.RegisterPrefix(endpointUrl, new FakeWebRequestCreator());
-            IPingingClient client= new PingingClient(endpointUrl);
-
-            PingResponse response = client.Ping(new PingRequest
-            {
-                FeedUrl = SomeFeedUrl
-            });
-
-            Assert.AreEqual(response.Status, PingStatus.Failed);
-            Assert.AreEqual(response.Message, "Your Ping resulted in an Error");
+            Assert.AreEqual(response.Status, expectedStatus);
+            Assert.AreEqual(response.Message, expectedMessage);
         }
     }
 }
