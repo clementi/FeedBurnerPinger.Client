@@ -8,10 +8,12 @@ namespace FeedBurnerPinger.Client
     public class PingingClient : IPingingClient
     {
         private readonly string endpointUrl;
+        private readonly JsonSerializer serializer;
 
         public PingingClient(string endpointUrl)
         {
             this.endpointUrl = endpointUrl;
+            this.serializer = new JsonSerializer();
         }
 
         public PingingClient()
@@ -26,14 +28,11 @@ namespace FeedBurnerPinger.Client
             using (WebResponse response = webRequest.GetResponse())
             {
                 Stream responseStream = response.GetResponseStream();
+                
                 if (responseStream != null)
-                {
                     using (var reader = new StreamReader(responseStream))
-                    {
-                        var serializer = new JsonSerializer();
-                        return serializer.Deserialize<PingResponse>(new JsonTextReader(reader));
-                    }
-                }
+                        return this.serializer.Deserialize<PingResponse>(new JsonTextReader(reader));
+                
                 return null;
             }
         }
