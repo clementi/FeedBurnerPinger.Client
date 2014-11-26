@@ -12,10 +12,10 @@ namespace FeedBurnerPinger.Client.Tests
         [TestMethod]
         public void When_the_endpoint_returns_SUCCEEDED_it_should_return_a_response_with_Succeeded()
         {
-            const string EndpointUrl = "http://some-url-that-succeeds";
+            const string endpointUrl = "http://some-url-that-succeeds";
             
-            WebRequest.RegisterPrefix(EndpointUrl, new FakeWebRequestCreator());
-            IPingingClient client = new PingingClient(EndpointUrl);
+            WebRequest.RegisterPrefix(endpointUrl, new FakeWebRequestCreator());
+            IPingingClient client = new PingingClient(endpointUrl);
 
             PingResponse response = client.Ping(new PingRequest
             {
@@ -29,10 +29,10 @@ namespace FeedBurnerPinger.Client.Tests
         [TestMethod]
         public void When_the_endpoint_returns_THROTTLED_it_should_return_a_response_with_Throttled()
         {
-            const string EndpointUrl = "http://some-url-that-reports-throttled";
+            const string endpointUrl = "http://some-url-that-reports-throttled";
 
-            WebRequest.RegisterPrefix(EndpointUrl, new FakeWebRequestCreator());
-            IPingingClient client = new PingingClient(EndpointUrl);
+            WebRequest.RegisterPrefix(endpointUrl, new FakeWebRequestCreator());
+            IPingingClient client = new PingingClient(endpointUrl);
 
             PingResponse response = client.Ping(new PingRequest
             {
@@ -46,10 +46,10 @@ namespace FeedBurnerPinger.Client.Tests
         [TestMethod]
         public void When_the_endpoint_returns_FAILED_it_should_return_a_response_with_Failed()
         {
-            const string EndpointUrl = "http://some-url-that-reports-failed";
+            const string endpointUrl = "http://some-url-that-reports-failed";
 
-            WebRequest.RegisterPrefix(EndpointUrl, new FakeWebRequestCreator());
-            IPingingClient client= new PingingClient(EndpointUrl);
+            WebRequest.RegisterPrefix(endpointUrl, new FakeWebRequestCreator());
+            IPingingClient client= new PingingClient(endpointUrl);
 
             PingResponse response = client.Ping(new PingRequest
             {
