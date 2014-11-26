@@ -18,10 +18,7 @@ namespace FeedBurnerPinger.Client.Tests
             WebRequest.RegisterPrefix(endpointUrl, new FakeWebRequestCreator());
             IPingingClient client = new PingingClient(endpointUrl);
 
-            PingResponse response = client.Ping(new PingRequest
-            {
-                FeedUrl = SomeFeedUrl
-            });
+            PingResponse response = client.Ping(new PingRequest { FeedUrl = SomeFeedUrl });
 
             Assert.AreEqual(response.Status, expectedStatus);
             Assert.AreEqual(response.Message, expectedMessage);
