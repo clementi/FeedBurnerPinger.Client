@@ -1,6 +1,6 @@
-﻿using System.Configuration;
+﻿using System.Collections.Specialized;
+using System.Configuration;
 using System.IO;
-using System.Net;
 using Newtonsoft.Json;
 
 namespace FeedBurnerPinger.Client
@@ -8,33 +8,26 @@ namespace FeedBurnerPinger.Client
     public class PingingClient : IPingingClient
     {
         private readonly string endpointUrl;
+        private readonly IWebClient webClient;
         private readonly JsonSerializer serializer;
 
-        public PingingClient(string endpointUrl)
+        public PingingClient(string endpointUrl, IWebClient webClient)
         {
             this.endpointUrl = endpointUrl;
+            this.webClient = webClient;
             this.serializer = new JsonSerializer();
         }
 
-        public PingingClient()
+        public PingingClient() : this(ConfigurationManager.AppSettings["EndpointUrl"], new SystemWebClient())
         {
-            this.endpointUrl = ConfigurationManager.AppSettings["EndpointUrl"];
         }
 
         public PingResponse Ping(PingRequest request)
         {
-            var webRequest = WebRequest.Create(this.endpointUrl);
-
-            using (WebResponse response = webRequest.GetResponse())
-            {
-                Stream responseStream = response.GetResponseStream();
-                
-                if (responseStream != null)
-                    using (var reader = new StreamReader(responseStream))
-                        return this.serializer.Deserialize<PingResponse>(new JsonTextReader(reader));
-                
-                return null;
-            }
+            byte[] response = this.webClient.UploadValues(this.endpointUrl, new NameValueCollection { { "url", request.FeedUrl } });
+         
+            using (var reader = new StreamReader(new MemoryStream(response)))
+                return this.serializer.Deserialize<PingResponse>(new JsonTextReader(reader));
         }
     }
 }

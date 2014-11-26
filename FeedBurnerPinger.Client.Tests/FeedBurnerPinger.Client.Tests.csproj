@@ -45,11 +45,9 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Fakes\FakeWebRequestCreator.cs" />
+    <Compile Include="Fakes\FakeWebClient.cs" />
     <Compile Include="PingingClientTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Fakes\FakeWebRequest.cs" />
-    <Compile Include="Fakes\FakeWebResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FeedBurnerPinger.Client\FeedBurnerPinger.Client.csproj">

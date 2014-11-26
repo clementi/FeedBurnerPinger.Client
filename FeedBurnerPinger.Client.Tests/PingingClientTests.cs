@@ -1,5 +1,4 @@
-﻿using System.Net;
-using FeedBurnerPinger.Client.Tests.Fakes;
+﻿using FeedBurnerPinger.Client.Tests.Fakes;
 using NUnit.Framework;
 
 namespace FeedBurnerPinger.Client.Tests
@@ -14,8 +13,7 @@ namespace FeedBurnerPinger.Client.Tests
         [TestCase("http://some-url-that-reports-failed", PingStatus.Failed, "Your Ping resulted in an Error")]
         public void PingTest(string endpointUrl, PingStatus expectedStatus, string expectedMessage)
         {
-            WebRequest.RegisterPrefix(endpointUrl, new FakeWebRequestCreator());
-            IPingingClient client = new PingingClient(endpointUrl);
+            IPingingClient client = new PingingClient(endpointUrl, new FakeWebClient());
 
             PingResponse response = client.Ping(new PingRequest { FeedUrl = SomeFeedUrl });
 
