@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text;
 
-namespace FeedBurnerPinger.Client.Tests.WebRequestFakes
+namespace FeedBurnerPinger.Client.Tests.Fakes
 {
     public class FakeWebResponse : WebResponse
     {

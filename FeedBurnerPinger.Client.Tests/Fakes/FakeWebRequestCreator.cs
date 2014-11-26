@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace FeedBurnerPinger.Client.Tests.WebRequestFakes
+namespace FeedBurnerPinger.Client.Tests.Fakes
 {
     public class FakeWebRequestCreator : IWebRequestCreate
     {

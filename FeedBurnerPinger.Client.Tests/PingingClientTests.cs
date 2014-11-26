@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using FeedBurnerPinger.Client.Tests.WebRequestFakes;
+using FeedBurnerPinger.Client.Tests.Fakes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FeedBurnerPinger.Client.Tests
