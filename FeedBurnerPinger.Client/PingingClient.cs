@@ -37,6 +37,14 @@ namespace FeedBurnerPinger.Client
                 return this.serializer.Deserialize<PingResponse>(new JsonTextReader(reader));
         }
 
+        private static string GetEndpointUrl()
+        {
+            string exeConfigPath = typeof(PingingClient).Assembly.Location;
+            Configuration config = ConfigurationManager.OpenExeConfiguration(exeConfigPath);
+
+            return GetConfigurationAppSetting(config, EndpointUrlSettingKey);
+        }
+
         private static string GetConfigurationAppSetting(Configuration config, string key)
         {
             if (config != null)
@@ -51,14 +59,6 @@ namespace FeedBurnerPinger.Client
                 }
             }
             return string.Empty;
-        }
-
-        private static string GetEndpointUrl()
-        {
-            string exeConfigPath = typeof(PingingClient).Assembly.Location;
-            Configuration config = ConfigurationManager.OpenExeConfiguration(exeConfigPath);
-
-            return GetConfigurationAppSetting(config, EndpointUrlSettingKey);
         }
     }
 }
