@@ -2,7 +2,7 @@
 
 namespace FeedBurnerPinger.Client
 {
-    public interface IWebClient
+    internal interface IWebClient
     {
         byte[] UploadValues(string url, NameValueCollection values);
     }

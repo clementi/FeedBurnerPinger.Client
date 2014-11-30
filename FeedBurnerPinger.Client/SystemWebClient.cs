@@ -3,7 +3,7 @@ using System.Net;
 
 namespace FeedBurnerPinger.Client
 {
-    public class SystemWebClient : IWebClient
+    internal class SystemWebClient : IWebClient
     {
         public byte[] UploadValues(string url, NameValueCollection values)
         {

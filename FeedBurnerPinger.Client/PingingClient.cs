@@ -1,7 +1,10 @@
 ﻿using System.Collections.Specialized;
 using System.Configuration;
 using System.IO;
+using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
+
+[assembly: InternalsVisibleTo("FeedBurnerPinger.Client.Tests")]
 
 namespace FeedBurnerPinger.Client
 {
@@ -11,7 +14,7 @@ namespace FeedBurnerPinger.Client
         private readonly IWebClient webClient;
         private readonly JsonSerializer serializer;
 
-        public PingingClient(string endpointUrl, IWebClient webClient)
+        internal PingingClient(string endpointUrl, IWebClient webClient)
         {
             this.endpointUrl = endpointUrl;
             this.webClient = webClient;
